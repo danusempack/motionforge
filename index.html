@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0B0C10">
+    <title>MotionForge — Preset Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-play" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20 7 4"/></symbol>
+            <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
+            <symbol id="i-restart" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.5 15a9 9 0 1 0 2-9.5L1 10"/></symbol>
+            <symbol id="i-loop" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+            <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+            <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+            <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+            <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+            <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
+            <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54 5.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-5.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+            <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+            <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+            <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+            <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+            <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+        </defs>
+    </svg>
+
+    <div id="app">
+        <!-- Header -->
+        <header id="topbar">
+            <div class="brand">
+                <div class="brand-mark">
+                    <svg viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20 7 4"/></svg>
+                </div>
+                <div class="brand-info">
+                    <h1>MotionForge</h1>
+                    <span class="brand-sub" id="projectSubtitle">Preset Studio</span>
+                </div>
+            </div>
+            <div class="top-actions">
+                <button class="btn ghost" id="btnOpenXML" title="Buka file preset XML">
+                    <svg class="i"><use href="#i-file"/></svg>
+                    <span class="hide-sm">Buka XML</span>
+                </button>
+                <button class="btn ghost" id="btnSettings" title="Pengaturan">
+                    <svg class="i"><use href="#i-settings"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stage -->
+        <div id="stage">
+            <canvas id="viewport" width="540" height="960"></canvas>
+            <div class="stage-overlay" id="stageOverlay">
+                <div class="stage-hint" id="stageHint">
+                    <svg class="i"><use href="#i-play"/></svg>
+                </div>
+            </div>
+            <div class="drop-hint" id="dropHint">Lepas file di sini</div>
+            <div class="stage-busy" id="stageBusy" hidden>
+                <div class="busy-spinner"></div>
+                <div class="busy-label" id="busyLabel">Memuat…</div>
+                <div class="busy-detail" id="busyDetail"></div>
+                <button class="btn sm" id="busyDismiss" hidden>Tutup</button>
+            </div>
+        </div>
+
+        <!-- Transport -->
+        <div id="transport">
+            <div class="transport-row">
+                <input type="range" id="seekBar" min="0" max="1000" value="0" step="1" aria-label="Posisi putar">
+                <button class="icon-btn" id="btnSeekReset" title="Reset ke awal">
+                    <svg class="i sm"><use href="#i-restart"/></svg>
+                </button>
+            </div>
+            <div class="transport-row">
+                <button class="icon-btn" id="btnRestart" title="Ke awal">
+                    <svg class="i"><use href="#i-restart"/></svg>
+                </button>
+                <button class="btn primary" id="btnPlay">
+                    <svg class="i sm"><use href="#i-play"/></svg>
+                    <span>Putar</span>
+                </button>
+                <button class="btn" id="btnLoop" title="Loop">
+                    <svg class="i sm"><use href="#i-loop"/></svg>
+                    <span class="hide-sm">Loop</span>
+                </button>
+                <span class="timecode" id="timecode">00:00:00:00</span>
+            </div>
+        </div>
+
+        <!-- Timeline Dock (Desktop) -->
+        <div id="timelineDock"></div>
+
+        <!-- Side Panel -->
+        <aside id="sidePanel">
+            <nav id="tabNav" role="tablist">
+                <button class="tab-btn active" data-tab="project" role="tab">
+                    <svg class="i"><use href="#i-file"/></svg>
+                    <span>Proyek</span>
+                </button>
+                <button class="tab-btn" data-tab="media" role="tab">
+                    <svg class="i"><use href="#i-image"/></svg>
+                    <span>Media</span>
+                </button>
+                <button class="tab-btn" data-tab="audio" role="tab">
+                    <svg class="i"><use href="#i-music"/></svg>
+                    <span>Audio</span>
+                </button>
+                <button class="tab-btn" data-tab="layers" role="tab">
+                    <svg class="i"><use href="#i-layers"/></svg>
+                    <span>Layer</span>
+                </button>
+                <button class="tab-btn" data-tab="export" role="tab">
+                    <svg class="i"><use href="#i-film"/></svg>
+                    <span>Ekspor</span>
+                </button>
+            </nav>
+
+            <div id="paneContainer">
+                <!-- Project Tab -->
+                <section class="pane active" id="pane-project">
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-file"/></svg>
+                            <h2>Preset XML</h2>
+                        </div>
+                        <label class="drop-zone" id="dropZone">
+                            <svg class="i"><use href="#i-upload"/></svg>
+                            <span class="drop-title">Pilih file .xml</span>
+                            <span class="drop-sub">Drag & drop atau klik untuk memilih</span>
+                            <input type="file" id="fileInput" accept=".xml,text/xml,application/xml" multiple hidden>
+                        </label>
+                        <div class="status-box" id="importStatus">Pilih file .xml untuk mulai</div>
+                        <button class="btn sm" id="btnResetPreset">
+                            <svg class="i sm"><use href="#i-restart"/></svg>
+                            Reset ke contoh
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-link"/></svg>
+                            <h2>Dari Link Alight Motion</h2>
+                        </div>
+                        <div class="input-row">
+                            <input type="url" id="inputUrlAM" placeholder="https://alightcreative.com/am/share/..." inputmode="url" autocapitalize="off" spellcheck="false">
+                            <button class="btn" id="btnFetchAM">Ambil</button>
+                        </div>
+                        <div class="status-box" id="amStatus">Belum ada XML</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-download"/></svg>
+                            <h2>Dari Google Drive</h2>
+                        </div>
+                        <div class="input-row">
+                            <input type="url" id="inputUrlDrive" placeholder="https://drive.google.com/file/d/..." inputmode="url" autocapitalize="off" spellcheck="false">
+                            <button class="btn" id="btnFetchDrive">Ambil</button>
+                        </div>
+                        <div class="status-box" id="driveStatus">Belum ada XML</div>
+                    </div>
+                </section>
+
+                <!-- Media Tab -->
+                <section class="pane" id="pane-media">
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-image"/></svg>
+                            <h2>Slot Media</h2>
+                            <span class="card-sub" id="slotCount">0 slot</span>
+                        </div>
+                        <div class="slot-list" id="slotList">
+                            <div class="empty-state">Belum ada slot media</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-layers"/></svg>
+                            <h2>Galeri Media</h2>
+                            <span class="card-sub" id="galleryCount">0 file</span>
+                        </div>
+                        <label class="btn primary block">
+                            <svg class="i sm"><use href="#i-plus"/></svg>
+                            Tambah Media
+                            <input type="file" id="mediaInput" accept="image/*,video/*,audio/*" multiple hidden>
+                        </label>
+                        <div class="gallery-grid" id="galleryGrid">
+                            <div class="empty-state">Memuat galeri…</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Audio Tab -->
+                <section class="pane" id="pane-audio">
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-music"/></svg>
+                            <h2>Track Audio</h2>
+                        </div>
+                        <div class="track-list" id="trackList">
+                            <div class="empty-state">Memuat audio…</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-settings"/></svg>
+                            <h2>Sinkronisasi</h2>
+                        </div>
+                        <div class="status-box" id="audioStatus">Audio: -</div>
+                        <div class="status-box warn" id="syncStatus">Sync: -</div>
+                        <button class="btn sm" id="btnAutoSync">Cocokkan kecepatan audio</button>
+                        <div class="field">
+                            <label class="label-row">
+                                <span>Kecepatan audio</span>
+                                <span class="val" id="rateValue">1.000x</span>
+                            </label>
+                            <div class="range-row">
+                                <input type="range" id="audioRate" min="0.5" max="1.5" step="0.001" value="1">
+                                <button class="icon-btn" data-reset="audioRate" data-default="1">
+                                    <svg class="i sm"><use href="#i-restart"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <label class="check-row">
+                            <input type="checkbox" id="chkPitch" checked>
+                            <span>Pertahankan pitch</span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Layers Tab -->
+                <section class="pane" id="pane-layers">
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-layers"/></svg>
+                            <h2>Layer</h2>
+                        </div>
+                        <div class="layer-list" id="layerList">
+                            <div class="empty-state">Muat preset terlebih dahulu</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Export Tab -->
+                <section class="pane" id="pane-export">
+                    <div class="card">
+                        <div class="card-header">
+                            <svg class="i"><use href="#i-film"/></svg>
+                            <h2>Ekspor Video</h2>
+                        </div>
+                        <div class="field">
+                            <label>Resolusi</label>
+                            <select id="exportResolution">
+                                <option value="270">270p (hemat)</option>
+                                <option value="360" selected>360p</option>
+                                <option value="480">480p</option>
+                                <option value="720">720p (HD)</option>
+                                <option value="1080">1080p (Full HD)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>FPS</label>
+                            <select id="exportFps">
+                                <option value="24">24</option>
+                                <option value="30" selected>30</option>
+                                <option value="60">60</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Kualitas</label>
+                            <select id="exportQuality">
+                                <option value="low">Rendah</option>
+                                <option value="medium" selected>Sedang</option>
+                                <option value="high">Tinggi</option>
+                            </select>
+                        </div>
+                        <button class="btn primary block" id="btnExport">
+                            <svg class="i sm"><use href="#i-film"/></svg>
+                            Mulai Ekspor
+                        </button>
+                        <div class="status-box" id="exportStatus">Siap — pilih resolusi dan FPS</div>
+                        <div class="progress-wrap" id="exportProgress" hidden>
+                            <progress id="exportProgressBar" value="0" max="100"></progress>
+                            <span class="progress-label" id="exportProgressLabel">0%</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Settings Dialog -->
+    <dialog id="settingsDialog">
+        <div class="dlg-header">
+            <h2>Pengaturan</h2>
+            <button class="icon-btn" id="btnCloseSettings">
+                <svg class="i"><use href="#i-x"/></svg>
+            </button>
+        </div>
+        <div class="dlg-body">
+            <div class="field">
+                <label>Kualitas Preview</label>
+                <select id="previewQuality">
+                    <option value="low">270p (paling cepat)</option>
+                    <option value="medium" selected>360p</option>
+                    <option value="high">480p</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Target FPS</label>
+                <select id="targetFps">
+                    <option value="60">60 (mulus)</option>
+                    <option value="30" selected>30 (hemat)</option>
+                    <option value="24">24</option>
+                </select>
+            </div>
+            <label class="check-row">
+                <input type="checkbox" id="chkEffects" checked>
+                <span>Jalankan efek</span>
+            </label>
+            <label class="check-row">
+                <input type="checkbox" id="chkDebug">
+                <span>Mode Debug</span>
+            </label>
+        </div>
+    </dialog>
+
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/engine/parser.js"></script>
+    <script src="js/engine/renderer.js"></script>
+    <script src="js/engine/audio.js"></script>
+    <script src="js/engine/exporter.js"></script>
+    <script src="js/ui/timeline.js"></script>
+    <script src="js/ui/panels.js"></script>
+    <script src="js/ui/viewport.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
